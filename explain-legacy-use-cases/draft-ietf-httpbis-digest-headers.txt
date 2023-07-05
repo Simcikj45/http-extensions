@@ -148,11 +148,11 @@ Table of Contents
    because it is opaque to the application layer and only covers the
    extent of a single connection.  HTTP messages often travel over a
    chain of separate connections.  In between connections there is a
-   possibility for unintended or malicious data corruption.  An HTTP
-   integrity mechanism can provide the means for endpoints, or
-   applications using HTTP, to detect data corruption and make a choice
-   about how to act on it.  An example use case is to aid fault
-   detection and diagnosis across system boundaries.
+   possibility for data corruption.  An HTTP integrity mechanism can
+   provide the means for endpoints, or applications using HTTP, to
+   detect data corruption and make a choice about how to act on it.  An
+   example use case is to aid fault detection and diagnosis across
+   system boundaries.
 
    This document defines two digest integrity mechanisms for HTTP.
    First, content integrity, which acts on conveyed content (Section 6.4
@@ -234,13 +234,13 @@ Table of Contents
    header fields.  Therefore, a given resource may have multiple
    different digest values when transferred with HTTP.
 
-   Integrity fields do not provide integrity for HTTP messages or
-   fields.  However, they can be combined with other mechanisms that
-   protect metadata, such as digital signatures, in order to protect the
-   phases of an HTTP exchange in whole or in part.  For example, HTTP
-   Message Signatures [SIGNATURES] could be used to sign Integrity
-   fields, thus providing coverage for HTTP content or representation
-   data.
+   Integrity fields apply to HTTP message content or HTTP
+   representations.  They do not apply to HTTP messages or fields.
+   However, they can be combined with other mechanisms that protect
+   metadata, such as digital signatures, in order to protect the phases
+   of an HTTP exchange in whole or in part.  For example, HTTP Message
+   Signatures [SIGNATURES] could be used to sign Integrity fields, thus
+   providing coverage for HTTP content or representation data.
 
    This specification does not define means for authentication,
    authorization, or privacy.
@@ -295,8 +295,11 @@ Table of Contents
    [FOLDING].
 
    Hashing algorithm names respect the casing used in their definition
-   document (e.g., SHA-1, CRC32c) whereas hashing algorithm keys are
-   quoted (e.g., "sha", "crc32c").
+   document (e.g., SHA-1, CRC32c).
+
+   HTTP messages indicate hashing algorithms using an Algorithm Key
+   (algorithms).  Where the document refers to an Algorithm Key in
+   prose, it is quoted (e.g., "sha", "crc32c").
 
    The term "checksum" describes the output of the application of an
    algorithm to a sequence of bytes, whereas "digest" is only used in

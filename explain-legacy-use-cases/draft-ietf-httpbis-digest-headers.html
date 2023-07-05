@@ -1382,7 +1382,7 @@ some integrity protection. However, transport-oriented integrity provides a
 limited utility because it is opaque to the application layer and only covers
 the extent of a single connection. HTTP messages often travel over a chain of
 separate connections. In between connections there is a possibility for
-unintended or malicious data corruption. An HTTP integrity mechanism can provide
+data corruption. An HTTP integrity mechanism can provide
 the means for endpoints, or applications using HTTP, to detect data corruption
 and make a choice about how to act on it. An example use case is to aid
 fault detection and diagnosis across system boundaries.<a href="#section-1-1" class="pilcrow">¶</a></p>
@@ -1477,12 +1477,12 @@ collectively termed Integrity preference fields.<a href="#section-1.2-6" class="
 <p id="section-1.2-7">Integrity fields are tied to the <code>Content-Encoding</code>
 and <code>Content-Type</code> header fields. Therefore, a given resource may have multiple
 different digest values when transferred with HTTP.<a href="#section-1.2-7" class="pilcrow">¶</a></p>
-<p id="section-1.2-8">Integrity fields do not provide integrity for
-HTTP messages or fields. However, they can be combined with other mechanisms that
-protect metadata, such as digital signatures, in order to protect
-the phases of an HTTP exchange in whole or in part. For example, HTTP Message
-Signatures <span>[<a href="#SIGNATURES" class="cite xref">SIGNATURES</a>]</span> could be used to sign Integrity fields, thus providing
-coverage for HTTP content or representation data.<a href="#section-1.2-8" class="pilcrow">¶</a></p>
+<p id="section-1.2-8">Integrity fields apply to HTTP message content or HTTP representations. They do
+not apply to HTTP messages or fields. However, they can be combined with other
+mechanisms that protect metadata, such as digital signatures, in order to
+protect the phases of an HTTP exchange in whole or in part. For example, HTTP
+Message Signatures <span>[<a href="#SIGNATURES" class="cite xref">SIGNATURES</a>]</span> could be used to sign Integrity fields, thus
+providing coverage for HTTP content or representation data.<a href="#section-1.2-8" class="pilcrow">¶</a></p>
 <p id="section-1.2-9">This specification does not define means for authentication, authorization, or privacy.<a href="#section-1.2-9" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1530,13 +1530,14 @@ data", "representation metadata", "user agent", and "content" in this document a
 interpreted as described in <span>[<a href="#RFC9110" class="cite xref">HTTP</a>]</span>.<a href="#section-1.4-4" class="pilcrow">¶</a></p>
 <p id="section-1.4-5">This document uses the line folding strategies
 described in <span>[<a href="#FOLDING" class="cite xref">FOLDING</a>]</span>.<a href="#section-1.4-5" class="pilcrow">¶</a></p>
-<p id="section-1.4-6">Hashing algorithm names respect the casing used in their definition document (e.g., SHA-1, CRC32c)
-whereas hashing algorithm keys are quoted (e.g., "sha", "crc32c").<a href="#section-1.4-6" class="pilcrow">¶</a></p>
-<p id="section-1.4-7">The term "checksum" describes the output of the application of an algorithm
+<p id="section-1.4-6">Hashing algorithm names respect the casing used in their definition document (e.g., SHA-1, CRC32c).<a href="#section-1.4-6" class="pilcrow">¶</a></p>
+<p id="section-1.4-7">HTTP messages indicate hashing algorithms using an Algorithm Key (<span class="contact-name">algorithms</span>).
+Where the document refers to an Algorithm Key in prose, it is quoted (e.g., "sha", "crc32c").<a href="#section-1.4-7" class="pilcrow">¶</a></p>
+<p id="section-1.4-8">The term "checksum" describes the output of the application of an algorithm
 to a sequence of bytes,
-whereas "digest" is only used in relation to the value contained in the fields.<a href="#section-1.4-7" class="pilcrow">¶</a></p>
-<p id="section-1.4-8">Integrity fields: collective term for <code>Content-Digest</code> and <code>Repr-Digest</code><a href="#section-1.4-8" class="pilcrow">¶</a></p>
-<p id="section-1.4-9">Integrity preference fields: collective term for <code>Want-Repr-Digest</code> and <code>Want-Content-Digest</code><a href="#section-1.4-9" class="pilcrow">¶</a></p>
+whereas "digest" is only used in relation to the value contained in the fields.<a href="#section-1.4-8" class="pilcrow">¶</a></p>
+<p id="section-1.4-9">Integrity fields: collective term for <code>Content-Digest</code> and <code>Repr-Digest</code><a href="#section-1.4-9" class="pilcrow">¶</a></p>
+<p id="section-1.4-10">Integrity preference fields: collective term for <code>Want-Repr-Digest</code> and <code>Want-Content-Digest</code><a href="#section-1.4-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
