@@ -6,7 +6,7 @@ HTTP                                                            R. Polli
 Internet-Draft                         Team Digitale, Italian Government
 Obsoletes: 3230 (if approved)                                  L. Pardue
 Intended status: Standards Track                              Cloudflare
-Expires: 4 January 2024                                      3 July 2023
+Expires: 6 January 2024                                      5 July 2023
 
 
                              Digest Fields
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 January 2024.
+   This Internet-Draft will expire on 6 January 2024.
 
 Copyright Notice
 
@@ -525,7 +525,8 @@ Table of Contents
    functions might need to provide resistance to collision, first-
    preimage and second-preimage attacks.  For adversarial situations,
    selecting which of the "standard" algorithms are acceptable will
-   depend on the level of protection the circumstances demand.
+   depend on the level of protection the circumstances demand.  More
+   considerations are presented in Section 6.6.
 
    Algorithms with a status value of "insecure" either provide none of
    these properties, or are known to be weak (see [NO-MD5] and
