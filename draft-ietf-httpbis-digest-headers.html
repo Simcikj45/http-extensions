@@ -1054,11 +1054,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Digest Fields</td>
-<td class="right">June 2023</td>
+<td class="right">July 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Polli &amp; Pardue</td>
-<td class="center">Expires 1 January 2024</td>
+<td class="center">Expires 6 January 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1074,12 +1074,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc3230" class="eref">3230</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-06-30" class="published">30 June 2023</time>
+<time datetime="2023-07-05" class="published">5 July 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-01-01">1 January 2024</time></dd>
+<dd class="expires"><time datetime="2024-01-06">6 January 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1138,7 @@ fields.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 January 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 6 January 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1530,13 +1530,14 @@ data", "representation metadata", "user agent", and "content" in this document a
 interpreted as described in <span>[<a href="#RFC9110" class="cite xref">HTTP</a>]</span>.<a href="#section-1.4-4" class="pilcrow">¶</a></p>
 <p id="section-1.4-5">This document uses the line folding strategies
 described in <span>[<a href="#FOLDING" class="cite xref">FOLDING</a>]</span>.<a href="#section-1.4-5" class="pilcrow">¶</a></p>
-<p id="section-1.4-6">Hashing algorithm names respect the casing used in their definition document (e.g., SHA-1, CRC32c)
-whereas hashing algorithm keys are quoted (e.g., "sha", "crc32c").<a href="#section-1.4-6" class="pilcrow">¶</a></p>
-<p id="section-1.4-7">The term "checksum" describes the output of the application of an algorithm
+<p id="section-1.4-6">Hashing algorithm names respect the casing used in their definition document (e.g., SHA-1, CRC32c).<a href="#section-1.4-6" class="pilcrow">¶</a></p>
+<p id="section-1.4-7">HTTP messages indicate hashing algorithms using an Algorithm Key (<span class="contact-name">algorithms</span>).
+Where the document refers to an Algorithm Key in prose, it is quoted (e.g., "sha", "crc32c").<a href="#section-1.4-7" class="pilcrow">¶</a></p>
+<p id="section-1.4-8">The term "checksum" describes the output of the application of an algorithm
 to a sequence of bytes,
-whereas "digest" is only used in relation to the value contained in the fields.<a href="#section-1.4-7" class="pilcrow">¶</a></p>
-<p id="section-1.4-8">Integrity fields: collective term for <code>Content-Digest</code> and <code>Repr-Digest</code><a href="#section-1.4-8" class="pilcrow">¶</a></p>
-<p id="section-1.4-9">Integrity preference fields: collective term for <code>Want-Repr-Digest</code> and <code>Want-Content-Digest</code><a href="#section-1.4-9" class="pilcrow">¶</a></p>
+whereas "digest" is only used in relation to the value contained in the fields.<a href="#section-1.4-8" class="pilcrow">¶</a></p>
+<p id="section-1.4-9">Integrity fields: collective term for <code>Content-Digest</code> and <code>Repr-Digest</code><a href="#section-1.4-9" class="pilcrow">¶</a></p>
+<p id="section-1.4-10">Integrity preference fields: collective term for <code>Want-Repr-Digest</code> and <code>Want-Content-Digest</code><a href="#section-1.4-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1586,9 +1587,10 @@ Content-Digest: \
 </div>
 <p id="section-2-7">A recipient <span class="bcp14">MAY</span> ignore any or all digests. Application-specific behavior or
 local policy <span class="bcp14">MAY</span> set additional constraints on the processing and validation
-practices of the conveyed digests. For example, validation of a subset of
-received digests is one approach to protection against resource exhaustion; see
-<a href="#resource-exhaustion" class="auto internal xref">Section 6.7</a>.<a href="#section-2-7" class="pilcrow">¶</a></p>
+practices of the conveyed digests.
+The security considerations covers some of the issues related to
+ignoring digests (see <a href="#sec-agility" class="auto internal xref">Section 6.6</a>)
+and validating multiple digests (see <a href="#sec-exhaustion" class="auto internal xref">Section 6.7</a>).<a href="#section-2-7" class="pilcrow">¶</a></p>
 <p id="section-2-8">A sender <span class="bcp14">MAY</span> send a digest without
 knowing whether the recipient supports a given hashing algorithm, or even knowing
 that the recipient will ignore it.<a href="#section-2-8" class="pilcrow">¶</a></p>
@@ -1649,9 +1651,10 @@ Repr-Digest: \
 </div>
 <p id="section-3-10">A recipient <span class="bcp14">MAY</span> ignore any or all digests. Application-specific behavior or
 local policy <span class="bcp14">MAY</span> set additional constraints on the processing and validation
-practices of the conveyed digests. For example, validation of a subset of
-received digests is one approach to protection against resource exhaustion; see
-<a href="#resource-exhaustion" class="auto internal xref">Section 6.7</a>.<a href="#section-3-10" class="pilcrow">¶</a></p>
+practices of the conveyed digests.
+The security considerations covers some of the issues related to
+ignoring digests (see <a href="#sec-agility" class="auto internal xref">Section 6.6</a>)
+and validating multiple digests (see <a href="#sec-exhaustion" class="auto internal xref">Section 6.7</a>).<a href="#section-3-10" class="pilcrow">¶</a></p>
 <p id="section-3-11">A sender <span class="bcp14">MAY</span> send a digest without knowing whether the
 recipient supports a given hashing algorithm, or even knowing that the recipient
 will ignore it.<a href="#section-3-11" class="pilcrow">¶</a></p>
@@ -1769,18 +1772,25 @@ Algorithms for HTTP Digest Fields" registry; see
 in accordance with the policies set out in this section.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">Each algorithm has a status field, which is intended to provide an aid to
 implementation selection.<a href="#section-5-3" class="pilcrow">¶</a></p>
-<p id="section-5-4">Algorithms with a status value of "standard" are suitable for many purposes,
-including adversarial situations where hash functions might need to provide
-resistance to collision, first-preimage and second-preimage attacks. For
-adversarial situations, selecting which of the "standard" algorithms are
-acceptable will depend on the level of protection the circumstances demand. As
-there is no negotiation, endpoints that depend on a digest for security will be
-vulnerable to attacks on the weakest algorithm they are willing to accept.<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-4">Algorithms with a status value of "standard" are suitable for many purposes and
+it is <span class="bcp14">RECOMMENDED</span> that applications use these algorithms. These can be used in
+adversarial situations where hash functions might need to provide resistance to
+collision, first-preimage and second-preimage attacks. For adversarial
+situations, selecting which of the "standard" algorithms are acceptable will
+depend on the level of protection the circumstances demand.
+More considerations are presented in <a href="#sec-agility" class="auto internal xref">Section 6.6</a>.<a href="#section-5-4" class="pilcrow">¶</a></p>
 <p id="section-5-5">Algorithms with a status value of "insecure" either provide none of these
 properties, or are known to be weak (see <span>[<a href="#NO-MD5" class="cite xref">NO-MD5</a>]</span> and <span>[<a href="#NO-SHA" class="cite xref">NO-SHA</a>]</span>). These
 algorithms <span class="bcp14">MAY</span> be used to preserve integrity against corruption, but <span class="bcp14">MUST NOT</span> be
 used in a potentially adversarial setting; for example, when signing Integrity
-fields' values for authenticity.<a href="#section-5-5" class="pilcrow">¶</a></p>
+fields' values for authenticity. Permitting the use of these algorithms can help
+some applications, for example, those that previously used <span>[<a href="#RFC3230" class="cite xref">RFC3230</a>]</span>, are
+migrating to this specification (<a href="#migrating" class="auto internal xref">Appendix E</a>), and have existing stored
+collections of computed digest values avoid undue operational overhead caused by
+recomputation using other more-secure algorithms. Such applications are not
+exempt from the requirements in this section. Furthermore, applications without
+such legacy or history ought to follow the guidance for using algorithms with
+the status value "standard".<a href="#section-5-5" class="pilcrow">¶</a></p>
 <p id="section-5-6">Discussion of algorithm agility is presented in <a href="#sec-agility" class="auto internal xref">Section 6.6</a>.<a href="#section-5-6" class="pilcrow">¶</a></p>
 <p id="section-5-7">Registration requests for the "Hash Algorithms for HTTP Digest Fields" registry
 use the Specification Required policy (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.6" class="relref">Section 4.6</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>). Requests
@@ -1937,6 +1947,8 @@ to choose hashing algorithms from the IANA Hash Algorithms for HTTP Digest Field
 <p id="section-6.6-2">Transition from weak algorithms is supported
 by negotiation of hashing algorithm using <code>Want-Content-Digest</code> or <code>Want-Repr-Digest</code> (see <a href="#want-fields" class="auto internal xref">Section 4</a>)
 or by sending multiple digests from which the receiver chooses.
+A receiver that depends on a digest for security will be vulnerable
+to attacks on the weakest algorithm it is willing to accept.
 Endpoints are advised that sending multiple values consumes resources,
 which may be wasted if the receiver ignores them (see <a href="#representation-digest" class="auto internal xref">Section 3</a>).<a href="#section-6.6-2" class="pilcrow">¶</a></p>
 <p id="section-6.6-3">While algorithm agility allows the migration to stronger algorithms
@@ -1947,14 +1959,16 @@ To protect against such attacks, endpoints could restrict their set of supported
 to stronger ones and protect the fields value by using TLS and/or digital signatures.<a href="#section-6.6-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="resource-exhaustion">
+<div id="sec-exhaustion">
 <section id="section-6.7">
         <h3 id="name-resource-exhaustion">
 <a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-resource-exhaustion" class="section-name selfRef">Resource exhaustion</a>
         </h3>
 <p id="section-6.7-1">Integrity fields validation consumes computational resources.
 In order to avoid resource exhaustion, implementations can restrict
-validation of the algorithm types, number of validations, or the size of content.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
+validation of the algorithm types, number of validations, or the size of content.
+In these cases, skipping validation entirely or ignoring validation failure of a more-preferred algorithm
+leaves the possibility of a downgrade attack (see <a href="#sec-agility" class="auto internal xref">Section 6.6</a>).<a href="#section-6.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3171,7 +3185,7 @@ crc32c -    :Q3lHIA==:
 </div>
 </section>
 </div>
-<div id="migrating-from-rfc-3230">
+<div id="migrating">
 <section id="appendix-E">
       <h2 id="name-migrating-from-rfc-3230">
 <a href="#appendix-E" class="section-number selfRef">Appendix E. </a><a href="#name-migrating-from-rfc-3230" class="section-name selfRef">Migrating from RFC 3230</a>
