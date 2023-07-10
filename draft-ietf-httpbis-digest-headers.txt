@@ -124,6 +124,7 @@ Table of Contents
    Acknowledgements
    Code Samples
    Changes
+     Since draft-ietf-httpbis-digest-headers-12
      Since draft-ietf-httpbis-digest-headers-11
      Since draft-ietf-httpbis-digest-headers-10
      Since draft-ietf-httpbis-digest-headers-09
@@ -1734,6 +1735,21 @@ Code Samples
 Changes
 
    This section is to be removed before publishing as an RFC.
+
+Since draft-ietf-httpbis-digest-headers-12
+
+   *  Be clearer that applications can enforce additional requirements
+      wrt digest
+
+   *  Change algorithm status names: s/standard/active, s/insecure/
+      deprecated
+
+   *  Remove "reserved" algorithm status
+
+   *  Provide clear guidance about the use of standard or deprecated
+      algorithms
+
+   *  Editorial or minor changes
 
 Since draft-ietf-httpbis-digest-headers-11
 
