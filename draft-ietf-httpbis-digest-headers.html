@@ -1058,7 +1058,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Polli &amp; Pardue</td>
-<td class="center">Expires 6 January 2024</td>
+<td class="center">Expires 11 January 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1074,12 +1074,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc3230" class="eref">3230</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-07-05" class="published">5 July 2023</time>
+<time datetime="2023-07-10" class="published">10 July 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-01-06">6 January 2024</time></dd>
+<dd class="expires"><time datetime="2024-01-11">11 January 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1138,7 @@ fields.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 6 January 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 January 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1772,14 +1772,14 @@ Algorithms for HTTP Digest Fields" registry; see
 in accordance with the policies set out in this section.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">Each algorithm has a status field, which is intended to provide an aid to
 implementation selection.<a href="#section-5-3" class="pilcrow">¶</a></p>
-<p id="section-5-4">Algorithms with a status value of "standard" are suitable for many purposes and
+<p id="section-5-4">Algorithms with a status value of "Active" are suitable for many purposes and
 it is <span class="bcp14">RECOMMENDED</span> that applications use these algorithms. These can be used in
 adversarial situations where hash functions might need to provide resistance to
 collision, first-preimage and second-preimage attacks. For adversarial
-situations, selecting which of the "standard" algorithms are acceptable will
+situations, selecting which of the "Active" algorithms are acceptable will
 depend on the level of protection the circumstances demand.
 More considerations are presented in <a href="#sec-agility" class="auto internal xref">Section 6.6</a>.<a href="#section-5-4" class="pilcrow">¶</a></p>
-<p id="section-5-5">Algorithms with a status value of "insecure" either provide none of these
+<p id="section-5-5">Algorithms with a status value of "Deprecated" either provide none of these
 properties, or are known to be weak (see <span>[<a href="#NO-MD5" class="cite xref">NO-MD5</a>]</span> and <span>[<a href="#NO-SHA" class="cite xref">NO-SHA</a>]</span>). These
 algorithms <span class="bcp14">MAY</span> be used to preserve integrity against corruption, but <span class="bcp14">MUST NOT</span> be
 used in a potentially adversarial setting; for example, when signing Integrity
@@ -1790,7 +1790,7 @@ collections of computed digest values avoid undue operational overhead caused by
 recomputation using other more-secure algorithms. Such applications are not
 exempt from the requirements in this section. Furthermore, applications without
 such legacy or history ought to follow the guidance for using algorithms with
-the status value "standard".<a href="#section-5-5" class="pilcrow">¶</a></p>
+the status value "Active".<a href="#section-5-5" class="pilcrow">¶</a></p>
 <p id="section-5-6">Discussion of algorithm agility is presented in <a href="#sec-agility" class="auto internal xref">Section 6.6</a>.<a href="#section-5-6" class="pilcrow">¶</a></p>
 <p id="section-5-7">Registration requests for the "Hash Algorithms for HTTP Digest Fields" registry
 use the Specification Required policy (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.6" class="relref">Section 4.6</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>). Requests
@@ -1803,11 +1803,11 @@ should use the following template:<a href="#section-5-7" class="pilcrow">¶</a><
         <li class="normal" id="section-5-8.2">
           <p id="section-5-8.2.1">Status: the status of the algorithm. The options are:<a href="#section-5-8.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5-8.2.2.1">"standard" - for standardized algorithms without known problems,<a href="#section-5-8.2.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5-8.2.2.1">"Active" - for algorithms without known problems,<a href="#section-5-8.2.2.1" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-5-8.2.2.2">"provisional" - for non-standard or unproven algorithms,<a href="#section-5-8.2.2.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-5-8.2.2.2">"Provisional" - for unproven algorithms,<a href="#section-5-8.2.2.2" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-5-8.2.2.3">"insecure" - for insecure algorithms,<a href="#section-5-8.2.2.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-5-8.2.2.3">"Deprecated" - for deprecated or insecure algorithms,<a href="#section-5-8.2.2.3" class="pilcrow">¶</a>
 </li>
           </ul>
 </li>
@@ -1820,15 +1820,15 @@ Key and technical details of the algorithm<a href="#section-5-8.4" class="pilcro
 <p id="section-5-9">When reviewing registration requests, the designated expert(s) should pay
 attention to the requested status. The status value should reflect
 standardization status and the broad opinion of relevant interest groups such as
-the IETF or security-related SDOs. The "standard" status is not suitable for an
+the IETF or security-related SDOs. The "Active" status is not suitable for an
 algorithm that is known to be weak, broken, or experimental. If a registration
-request attempts to register such an algorithm as "standard", the designated
-expert(s) should suggest an alternative status of "insecure" or "provisional".<a href="#section-5-9" class="pilcrow">¶</a></p>
+request attempts to register such an algorithm as "Active", the designated
+expert(s) should suggest an alternative status of "Deprecated" or "Provisional".<a href="#section-5-9" class="pilcrow">¶</a></p>
 <p id="section-5-10">When reviewing registration requests, the designated expert(s) cannot use a
-status of "insecure" or "provisional" as grounds for rejection.<a href="#section-5-10" class="pilcrow">¶</a></p>
+status of "Deprecated" or "Provisional" as grounds for rejection.<a href="#section-5-10" class="pilcrow">¶</a></p>
 <p id="section-5-11">Requests to update or change the fields in an existing registration are
 permitted. For example, this could allow for the transition of an algorithm
-status from "standard" to "insecure" as the security environment evolves.<a href="#section-5-11" class="pilcrow">¶</a></p>
+status from "Active" to "Deprecated" as the security environment evolves.<a href="#section-5-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security">
@@ -2062,21 +2062,21 @@ new registrations is provided in <a href="#algorithms" class="auto internal xref
           <tbody>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">sha-512</td>
-              <td class="text-left" rowspan="1" colspan="1">standard</td>
+              <td class="text-left" rowspan="1" colspan="1">Active</td>
               <td class="text-left" rowspan="1" colspan="1">The SHA-512 algorithm.</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#RFC6234" class="cite xref">RFC6234</a>]</span>, <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>]</span>, this document.</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">sha-256</td>
-              <td class="text-left" rowspan="1" colspan="1">standard</td>
+              <td class="text-left" rowspan="1" colspan="1">Active</td>
               <td class="text-left" rowspan="1" colspan="1">The SHA-256 algorithm.</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#RFC6234" class="cite xref">RFC6234</a>]</span>, <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>]</span>, this document.</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">md5</td>
-              <td class="text-left" rowspan="1" colspan="1">insecure</td>
+              <td class="text-left" rowspan="1" colspan="1">Deprecated</td>
               <td class="text-left" rowspan="1" colspan="1">The MD5 algorithm. It is vulnerable to collision attacks; see <span>[<a href="#NO-MD5" class="cite xref">NO-MD5</a>]</span> and <span>[<a href="#CMU-836068" class="cite xref">CMU-836068</a>]</span>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
@@ -2084,7 +2084,7 @@ new registrations is provided in <a href="#algorithms" class="auto internal xref
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">sha</td>
-              <td class="text-left" rowspan="1" colspan="1">insecure</td>
+              <td class="text-left" rowspan="1" colspan="1">Deprecated</td>
               <td class="text-left" rowspan="1" colspan="1">The SHA-1 algorithm. It is vulnerable to collision attacks; see <span>[<a href="#NO-SHA" class="cite xref">NO-SHA</a>]</span> and <span>[<a href="#IACR-2020-014" class="cite xref">IACR-2020-014</a>]</span>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
@@ -2092,28 +2092,28 @@ new registrations is provided in <a href="#algorithms" class="auto internal xref
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">unixsum</td>
-              <td class="text-left" rowspan="1" colspan="1">insecure</td>
+              <td class="text-left" rowspan="1" colspan="1">Deprecated</td>
               <td class="text-left" rowspan="1" colspan="1">The algorithm used by the UNIX "sum" command.</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>]</span>, <span>[<a href="#RFC6234" class="cite xref">RFC6234</a>]</span>, <span>[<a href="#UNIX" class="cite xref">UNIX</a>]</span>, this document.</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">unixcksum</td>
-              <td class="text-left" rowspan="1" colspan="1">insecure</td>
+              <td class="text-left" rowspan="1" colspan="1">Deprecated</td>
               <td class="text-left" rowspan="1" colspan="1">The algorithm used by the UNIX "cksum" command.</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>]</span>, <span>[<a href="#RFC6234" class="cite xref">RFC6234</a>]</span>, <span>[<a href="#UNIX" class="cite xref">UNIX</a>]</span>, this document.</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">adler</td>
-              <td class="text-left" rowspan="1" colspan="1">insecure</td>
+              <td class="text-left" rowspan="1" colspan="1">Deprecated</td>
               <td class="text-left" rowspan="1" colspan="1">The ADLER32 algorithm.</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#RFC1950" class="cite xref">RFC1950</a>]</span>, this document.</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">crc32c</td>
-              <td class="text-left" rowspan="1" colspan="1">insecure</td>
+              <td class="text-left" rowspan="1" colspan="1">Deprecated</td>
               <td class="text-left" rowspan="1" colspan="1">The CRC32c algorithm.</td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#RFC9260" class="cite xref">RFC9260</a>]</span> appendix A, this document.</td>

@@ -6,7 +6,7 @@ HTTP                                                            R. Polli
 Internet-Draft                         Team Digitale, Italian Government
 Obsoletes: 3230 (if approved)                                  L. Pardue
 Intended status: Standards Track                              Cloudflare
-Expires: 6 January 2024                                      5 July 2023
+Expires: 11 January 2024                                    10 July 2023
 
 
                              Digest Fields
@@ -54,7 +54,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 January 2024.
+   This Internet-Draft will expire on 11 January 2024.
 
 Copyright Notice
 
@@ -522,16 +522,16 @@ Table of Contents
    Each algorithm has a status field, which is intended to provide an
    aid to implementation selection.
 
-   Algorithms with a status value of "standard" are suitable for many
+   Algorithms with a status value of "Active" are suitable for many
    purposes and it is RECOMMENDED that applications use these
    algorithms.  These can be used in adversarial situations where hash
    functions might need to provide resistance to collision, first-
    preimage and second-preimage attacks.  For adversarial situations,
-   selecting which of the "standard" algorithms are acceptable will
-   depend on the level of protection the circumstances demand.  More
+   selecting which of the "Active" algorithms are acceptable will depend
+   on the level of protection the circumstances demand.  More
    considerations are presented in Section 6.6.
 
-   Algorithms with a status value of "insecure" either provide none of
+   Algorithms with a status value of "Deprecated" either provide none of
    these properties, or are known to be weak (see [NO-MD5] and
    [NO-SHA]).  These algorithms MAY be used to preserve integrity
    against corruption, but MUST NOT be used in a potentially adversarial
@@ -544,7 +544,7 @@ Table of Contents
    Such applications are not exempt from the requirements in this
    section.  Furthermore, applications without such legacy or history
    ought to follow the guidance for using algorithms with the status
-   value "standard".
+   value "Active".
 
    Discussion of algorithm agility is presented in Section 6.6.
 
@@ -558,12 +558,11 @@ Table of Contents
 
    *  Status: the status of the algorithm.  The options are:
 
-      -  "standard" - for standardized algorithms without known
-         problems,
+      -  "Active" - for algorithms without known problems,
 
-      -  "provisional" - for non-standard or unproven algorithms,
+      -  "Provisional" - for unproven algorithms,
 
-      -  "insecure" - for insecure algorithms,
+      -  "Deprecated" - for deprecated or insecure algorithms,
 
    *  Description: a short description of the algorithm
 
@@ -574,17 +573,19 @@ Table of Contents
    pay attention to the requested status.  The status value should
    reflect standardization status and the broad opinion of relevant
    interest groups such as the IETF or security-related SDOs.  The
-   "standard" status is not suitable for an algorithm that is known to
-   be weak, broken, or experimental.  If a registration request attempts
-   to register such an algorithm as "standard", the designated expert(s)
-   should suggest an alternative status of "insecure" or "provisional".
+   "Active" status is not suitable for an algorithm that is known to be
+   weak, broken, or experimental.  If a registration request attempts to
+   register such an algorithm as "Active", the designated expert(s)
+   should suggest an alternative status of "Deprecated" or
+   "Provisional".
 
    When reviewing registration requests, the designated expert(s) cannot
-   use a status of "insecure" or "provisional" as grounds for rejection.
+   use a status of "Deprecated" or "Provisional" as grounds for
+   rejection.
 
    Requests to update or change the fields in an existing registration
    are permitted.  For example, this could allow for the transition of
-   an algorithm status from "standard" to "insecure" as the security
+   an algorithm status from "Active" to "Deprecated" as the security
    environment evolves.
 
 6.  Security Considerations
@@ -760,52 +761,53 @@ Table of Contents
    and populate it with the entries in Table 2.  The procedure for new
    registrations is provided in Section 5.
 
-   +===========+==========+============================+==============+
-   | Algorithm | Status   | Description                | Reference(s) |
-   | Key       |          |                            |              |
-   +===========+==========+============================+==============+
-   | sha-512   | standard | The SHA-512 algorithm.     | [RFC6234],   |
-   |           |          |                            | [RFC4648],   |
-   |           |          |                            | this         |
-   |           |          |                            | document.    |
-   +-----------+----------+----------------------------+--------------+
-   | sha-256   | standard | The SHA-256 algorithm.     | [RFC6234],   |
-   |           |          |                            | [RFC4648],   |
-   |           |          |                            | this         |
-   |           |          |                            | document.    |
-   +-----------+----------+----------------------------+--------------+
-   | md5       | insecure | The MD5 algorithm.  It is  | [RFC1321],   |
-   |           |          | vulnerable to collision    | [RFC4648],   |
-   |           |          | attacks; see [NO-MD5] and  | this         |
-   |           |          | [CMU-836068]               | document.    |
-   +-----------+----------+----------------------------+--------------+
-   | sha       | insecure | The SHA-1 algorithm.  It   | [RFC3174],   |
-   |           |          | is vulnerable to collision | [RFC4648],   |
-   |           |          | attacks; see [NO-SHA] and  | [RFC6234]    |
-   |           |          | [IACR-2020-014]            | this         |
-   |           |          |                            | document.    |
-   +-----------+----------+----------------------------+--------------+
-   | unixsum   | insecure | The algorithm used by the  | [RFC4648],   |
-   |           |          | UNIX "sum" command.        | [RFC6234],   |
-   |           |          |                            | [UNIX], this |
-   |           |          |                            | document.    |
-   +-----------+----------+----------------------------+--------------+
-   | unixcksum | insecure | The algorithm used by the  | [RFC4648],   |
-   |           |          | UNIX "cksum" command.      | [RFC6234],   |
-   |           |          |                            | [UNIX], this |
-   |           |          |                            | document.    |
-   +-----------+----------+----------------------------+--------------+
-   | adler     | insecure | The ADLER32 algorithm.     | [RFC1950],   |
-   |           |          |                            | this         |
-   |           |          |                            | document.    |
-   +-----------+----------+----------------------------+--------------+
-   | crc32c    | insecure | The CRC32c algorithm.      | [RFC9260]    |
-   |           |          |                            | appendix A,  |
-   |           |          |                            | this         |
-   |           |          |                            | document.    |
-   +-----------+----------+----------------------------+--------------+
+   +===========+============+===========================+==============+
+   | Algorithm | Status     | Description               | Reference(s) |
+   | Key       |            |                           |              |
+   +===========+============+===========================+==============+
+   | sha-512   | Active     | The SHA-512               | [RFC6234],   |
+   |           |            | algorithm.                | [RFC4648],   |
+   |           |            |                           | this         |
+   |           |            |                           | document.    |
+   +-----------+------------+---------------------------+--------------+
+   | sha-256   | Active     | The SHA-256               | [RFC6234],   |
+   |           |            | algorithm.                | [RFC4648],   |
+   |           |            |                           | this         |
+   |           |            |                           | document.    |
+   +-----------+------------+---------------------------+--------------+
+   | md5       | Deprecated | The MD5 algorithm.        | [RFC1321],   |
+   |           |            | It is vulnerable to       | [RFC4648],   |
+   |           |            | collision attacks;        | this         |
+   |           |            | see [NO-MD5] and          | document.    |
+   |           |            | [CMU-836068]              |              |
+   +-----------+------------+---------------------------+--------------+
+   | sha       | Deprecated | The SHA-1 algorithm.      | [RFC3174],   |
+   |           |            | It is vulnerable to       | [RFC4648],   |
+   |           |            | collision attacks;        | [RFC6234]    |
+   |           |            | see [NO-SHA] and          | this         |
+   |           |            | [IACR-2020-014]           | document.    |
+   +-----------+------------+---------------------------+--------------+
+   | unixsum   | Deprecated | The algorithm used        | [RFC4648],   |
+   |           |            | by the UNIX "sum"         | [RFC6234],   |
+   |           |            | command.                  | [UNIX], this |
+   |           |            |                           | document.    |
+   +-----------+------------+---------------------------+--------------+
+   | unixcksum | Deprecated | The algorithm used        | [RFC4648],   |
+   |           |            | by the UNIX "cksum"       | [RFC6234],   |
+   |           |            | command.                  | [UNIX], this |
+   |           |            |                           | document.    |
+   +-----------+------------+---------------------------+--------------+
+   | adler     | Deprecated | The ADLER32               | [RFC1950],   |
+   |           |            | algorithm.                | this         |
+   |           |            |                           | document.    |
+   +-----------+------------+---------------------------+--------------+
+   | crc32c    | Deprecated | The CRC32c                | [RFC9260]    |
+   |           |            | algorithm.                | appendix A,  |
+   |           |            |                           | this         |
+   |           |            |                           | document.    |
+   +-----------+------------+---------------------------+--------------+
 
-                     Table 2: Initial Hash Algorithms
+                      Table 2: Initial Hash Algorithms
 
 7.3.  Deprecate the Hypertext Transfer Protocol (HTTP) Digest Algorithm
       Values Registry
