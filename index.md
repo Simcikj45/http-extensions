@@ -38,3 +38,24 @@ View [saved issues](issues.html), or the latest GitHub [issues](https://github.c
 | [Client-Cert Header](draft-ietf-httpbis-digest-headers-13/draft-ietf-httpbis-client-cert-field.html "Client-Cert HTTP Header Field (HTML)") | [plain text](draft-ietf-httpbis-digest-headers-13/draft-ietf-httpbis-client-cert-field.txt "Client-Cert HTTP Header Field (Text)") | same as main |
 | [HTTP Alternative Services](draft-ietf-httpbis-digest-headers-13/draft-ietf-httpbis-rfc7838bis.html "HTTP Alternative Services (HTML)") | [plain text](draft-ietf-httpbis-digest-headers-13/draft-ietf-httpbis-rfc7838bis.txt "HTTP Alternative Services (Text)") | same as main |
 
+## Preview for branch [mnot](mnot)
+
+## Preview for branch [mnot/2575](mnot/2575)
+
+| Draft |     |     |     |
+| ----- | --- | --- | --- |
+| [Digest Fields](mnot/2575/draft-ietf-httpbis-digest-headers.html "Digest Fields (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-digest-headers.txt "Digest Fields (Text)") | same as main |
+| [The HTTP QUERY Method](mnot/2575/draft-ietf-httpbis-safe-method-w-body.html "The HTTP QUERY Method (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-safe-method-w-body.txt "The HTTP QUERY Method (Text)") | same as main |
+| [HTTP Message Signatures](mnot/2575/draft-ietf-httpbis-message-signatures.html "HTTP Message Signatures (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-message-signatures.txt "HTTP Message Signatures (Text)") | same as main |
+| [HTTP Representation Variants](mnot/2575/draft-ietf-httpbis-variants.html "HTTP Representation Variants (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-variants.txt "HTTP Representation Variants (Text)") | same as main |
+| [Cookies: HTTP State Management Mechanism](mnot/2575/draft-ietf-httpbis-rfc6265bis.html "Cookies: HTTP State Management Mechanism (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-rfc6265bis.txt "Cookies: HTTP State Management Mechanism (Text)") | same as main |
+| [Templated CONNECT-TCP](mnot/2575/draft-ietf-httpbis-connect-tcp.html "Template-Driven HTTP CONNECT Proxying for TCP (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-connect-tcp.txt "Template-Driven HTTP CONNECT Proxying for TCP (Text)") | same as main |
+| [ORIGIN in HTTP/3](mnot/2575/draft-ietf-httpbis-origin-h3.html "The ORIGIN Extension in HTTP/3 (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-origin-h3.txt "The ORIGIN Extension in HTTP/3 (Text)") | same as main |
+| [Retrofit Structured Fields](mnot/2575/draft-ietf-httpbis-retrofit.html "Retrofit Structured Fields for HTTP (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-retrofit.txt "Retrofit Structured Fields for HTTP (Text)") | same as main |
+| [Resumable Uploads](mnot/2575/draft-ietf-httpbis-resumable-upload.html "Resumable Uploads for HTTP (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-resumable-upload.txt "Resumable Uploads for HTTP (Text)") | same as main |
+| [Structured Field Values for HTTP](mnot/2575/draft-ietf-httpbis-sfbis.html "Structured Field Values for HTTP (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-sfbis.txt "Structured Field Values for HTTP (Text)") | [diff with main](https://author-tools.ietf.org/api/iddiff?url_1=https://httpwg.github.io/http-extensions/draft-ietf-httpbis-sfbis.txt&url_2=https://httpwg.github.io/http-extensions/mnot/2575/draft-ietf-httpbis-sfbis.txt) |
+| [DNS Aliases Proxy-Status](mnot/2575/draft-ietf-httpbis-alias-proxy-status.html "HTTP Proxy-Status Parameter for Next-Hop Aliases (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-alias-proxy-status.txt "HTTP Proxy-Status Parameter for Next-Hop Aliases (Text)") | same as main |
+| [The Signature HTTP Authentication Scheme](mnot/2575/draft-ietf-httpbis-unprompted-auth.html "The Signature HTTP Authentication Scheme (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-unprompted-auth.txt "The Signature HTTP Authentication Scheme (Text)") | same as main |
+| [Client-Cert Header](mnot/2575/draft-ietf-httpbis-client-cert-field.html "Client-Cert HTTP Header Field (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-client-cert-field.txt "Client-Cert HTTP Header Field (Text)") | same as main |
+| [HTTP Alternative Services](mnot/2575/draft-ietf-httpbis-rfc7838bis.html "HTTP Alternative Services (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-rfc7838bis.txt "HTTP Alternative Services (Text)") | same as main |
+
