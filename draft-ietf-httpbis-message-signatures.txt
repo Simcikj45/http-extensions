@@ -5,10 +5,10 @@
 HTTP                                                     A. Backman, Ed.
 Internet-Draft                                                    Amazon
 Intended status: Standards Track                          J. Richer, Ed.
-Expires: 11 January 2024                             Bespoke Engineering
+Expires: 12 January 2024                             Bespoke Engineering
                                                                M. Sporny
                                                           Digital Bazaar
-                                                            10 July 2023
+                                                            11 July 2023
 
 
                         HTTP Message Signatures
@@ -56,7 +56,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 January 2024.
+   This Internet-Draft will expire on 12 January 2024.
 
 Copyright Notice
 
@@ -4202,9 +4202,9 @@ Table of Contents
 
    [DIGEST]   Polli, R. and L. Pardue, "Digest Fields", Work in
               Progress, Internet-Draft, draft-ietf-httpbis-digest-
-              headers-12, 13 April 2023,
+              headers-13, 10 July 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
-              digest-headers-12>.
+              digest-headers-13>.
 
    [I-D.cavage-http-signatures]
               Cavage, M. and M. Sporny, "Signing HTTP Messages", Work in
