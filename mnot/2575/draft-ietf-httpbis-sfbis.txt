@@ -6,7 +6,7 @@ HTTP                                                       M. Nottingham
 Internet-Draft                                                Cloudflare
 Obsoletes: 8941 (if approved)                                 P.-H. Kamp
 Intended status: Standards Track               The Varnish Cache Project
-Expires: 12 January 2024                                    11 July 2023
+Expires: 13 January 2024                                    12 July 2023
 
 
                     Structured Field Values for HTTP
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 January 2024.
+   This Internet-Draft will expire on 13 January 2024.
 
 Copyright Notice
 
@@ -1056,12 +1056,15 @@ Table of Contents
    Given a string of Unicode characters as input_string, return an ASCII
    string suitable for use in an HTTP field value.
 
-   1.  Let byte_array be the result of applying UTF-8 encoding [UTF8] to
-       input_string.  If there is an error in doing so, fail parsing.
+   1.  If input_string is not a string of Unicode characters, fail
+       parsing.
 
-   2.  Let encoded_string be an empty string.
+   2.  Let byte_array be the result of applying UTF-8 encoding [UTF8] to
+       input_string.
 
-   3.  For each byte in byte_array:
+   3.  Let encoded_string be an empty string.
+
+   4.  For each byte in byte_array:
 
        1.  If byte is %x25 ("%"), append "%25" to encoded_string.
 
@@ -1072,13 +1075,13 @@ Table of Contents
        3.  Otherwise, decode byte as an ASCII character and append the
            result to encoded_string.
 
-   4.  Let output be a string containing %x25 ("%") followed by DQUOTE.
+   5.  Let output be a string containing "%" followed by DQUOTE.
 
-   5.  Append encoded_string to output.
+   6.  Append encoded_string to output.
 
-   6.  Append DQUOTE to output.
+   7.  Append DQUOTE to output.
 
-   7.  Return output.
+   8.  Return output.
 
 4.2.  Parsing Structured Fields
 
@@ -1603,8 +1606,8 @@ Table of Contents
    Given an ASCII string as input_string, return a string of Unicode
    characters. input_string is modified to remove the parsed value.
 
-   1.  If the first two characters of input_string are not %x25 ("%")
-       followed by DQUOTE, fail parsing.
+   1.  If the first two characters of input_string are not "%" followed
+       by DQUOTE, fail parsing.
 
    2.  Discard the first two characters of input_string.
 
@@ -1618,13 +1621,14 @@ Table of Contents
        2.  If char is in the range %x00-1f or %x7f-ff (i.e., it is not
            in VCHAR or SP), fail parsing.
 
-       3.  If char is %x25 ("%"):
+       3.  If char is "%":
 
            1.  Let octet_hex be the two bytes after char in
                input_string.  If there are not two bytes, fail parsing.
 
            2.  Let octet be the result of decoding octet_hex as
-               hexidecimal, in a case-insensitive fashion.
+               hexidecimal, in a case-insensitive fashion.  If decoding
+               fails, fail parsing.
 
            3.  Append octet to byte_array.
 
@@ -1636,7 +1640,7 @@ Table of Contents
 
            2.  Return unicode_string.
 
-       5.  Otherwise, if char is not %x25 or DQUOTE:
+       5.  Otherwise, if char is not "%" or DQUOTE:
 
            1.  Let byte be the result of applying ASCII encoding to
                char.

@@ -44,7 +44,7 @@ View [saved issues](issues.html), or the latest GitHub [issues](https://github.c
 
 | Draft |     |     |     |
 | ----- | --- | --- | --- |
-| [Digest Fields](mnot/2575/draft-ietf-httpbis-digest-headers.html "Digest Fields (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-digest-headers.txt "Digest Fields (Text)") | same as main |
+| [Digest Fields](mnot/2575/draft-ietf-httpbis-digest-headers.html "Digest Fields (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-digest-headers.txt "Digest Fields (Text)") | [diff with main](https://author-tools.ietf.org/api/iddiff?url_1=https://httpwg.github.io/http-extensions/draft-ietf-httpbis-digest-headers.txt&url_2=https://httpwg.github.io/http-extensions/mnot/2575/draft-ietf-httpbis-digest-headers.txt) |
 | [The HTTP QUERY Method](mnot/2575/draft-ietf-httpbis-safe-method-w-body.html "The HTTP QUERY Method (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-safe-method-w-body.txt "The HTTP QUERY Method (Text)") | same as main |
 | [HTTP Message Signatures](mnot/2575/draft-ietf-httpbis-message-signatures.html "HTTP Message Signatures (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-message-signatures.txt "HTTP Message Signatures (Text)") | same as main |
 | [HTTP Representation Variants](mnot/2575/draft-ietf-httpbis-variants.html "HTTP Representation Variants (HTML)") | [plain text](mnot/2575/draft-ietf-httpbis-variants.txt "HTTP Representation Variants (Text)") | same as main |
